@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Phone from '../Components/Phone.avif'
+import ThemeContext from '@/context/ThemeContext'
+import { IoSunny  } from "react-icons/io5";
+import { IoIosMoon } from "react-icons/io";
 const Navbar = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext)
   return (
     <div>
     <nav className="bg-amber-500">
@@ -19,7 +23,10 @@ const Navbar = () => {
         <section className='flex items-center gap-2 font-medium text-lg'>
           <h2>Teachology</h2>
           <img src="teachnology_bg.jpg" alt="" className='h-12 rounded-full overflow-hidden' />
-          <button>theme</button>
+           <button onClick={toggleTheme} className="text-2xl cursor-pointer">
+            {theme === "dark" ? <IoSunny /> : <IoIosMoon />}
+          </button>
+          <button>Cart</button>
         </section>
       </div>
     </nav>
